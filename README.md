@@ -1,5 +1,5 @@
 # toko
 jolali pertama expor database 
-bukaen phpmyadmin -> import file toko.sql -> ok
-jalano php artisan serve ng folder toko lewat terminal
-buka browser ketik htp://localhost:8000/
+1. bukaen phpmyadmin -> import file toko.sql -> ok
+2. jalano php artisan serve ng folder toko lewat terminal
+3. buka browser ketik htp://localhost:8000/
