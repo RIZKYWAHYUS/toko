@@ -26,7 +26,6 @@
 			margin-top : -30;
 			height : 400;
 			padding-top : 112;
-
 		}
 
 	</style>
@@ -54,7 +53,7 @@
 			<div class="col-md-4">
 				<input type="text" name="carinama" class="form-control"/>
 			</div>			
-			<div class="col-md-4">
+			<div class="col-md-4 hide-form-control">
 				<select name="carikategori" class="form-control" >
 					<option value="baju" class="form-control">baju</option>
 					<option value="jaket" class="form-control">jaket</option>
@@ -92,6 +91,9 @@
 						if($pjg > 19){
 							$nama = substr($nama, 0, 15).'...';
 						}
+						$pemilik = DB::select("SELECT * FROM USERS WHERE ID = :IDNE",['IDNE'=>$stockan->PEMILIK]);
+						$h = $pemilik[0]->id;
+						$fotopemilik = $pemilik[0]->foto;
 
 				echo "<a href='/detail/$stockan->ID_BARANG'>
 						<div class='col-md-3 col-sm-6 col-xs-12'>
@@ -101,7 +103,9 @@
 								</div>
 								<div class='panel-body'>
 									<figcaption>
+									<img src=$fotopemilik alt='' class='img-circle' height='50' width='50' />
 										<h4>$nama </h4>
+										<p>$h</p>	
 										<p>$stockan->STOCK_BARANG</p>
 										<p>$stockan->HARGA_BARANG</p>
 										<p>$gbr</p>	
