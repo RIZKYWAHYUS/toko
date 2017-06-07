@@ -42,6 +42,14 @@ class tokoController extends Controller{
         $nama = $barang->NAMA_BARANG;
         $harga = "Rp.".$barang->HARGA_BARANG.".000,00";
         $stock = $barang->STOCK_BARANG." pcs"; 
+
+        $result = DB::select( "SELECT * FROM users where id = :id",['id'=>$barang->PEMILIK] );
+   
+        $namapenjual =  $result[0]->name;
+        $fotopenjual = $result[0]->foto;
+        $emailpenjual = $result[0]->email;
+        $nohppenjual = $result[0]->NO_HP;
+        $tglpenjual = $result[0]->created_at;
       
 
         $isiDetail = [
@@ -49,7 +57,12 @@ class tokoController extends Controller{
             'nama'=>$nama,
             'harga'=>$harga,
             'stock'=>$stock,
-            'gbr'=>$gbr
+            'gbr'=>$gbr,
+            'namapenjual'=>$namapenjual,
+            'fotopenjual'=>$fotopenjual,
+            'emailpenjual'=>$emailpenjual,
+            'nohppenjual'=>$nohppenjual,
+            'tglpenjual'=>$tglpenjual
             ];
 
 

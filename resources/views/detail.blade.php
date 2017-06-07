@@ -16,6 +16,17 @@
   background-color: grey;
 color:white;
 }
+.col-pemilik{
+  padding-left:50;
+}
+.pemilik{
+  min-height : 400;
+ width : 250;
+
+}
+
+
+
 </style>
 @endsection
 
@@ -39,20 +50,20 @@ color:white;
 </div>
 
 
-<div class="about">
-  <div class="container">
+<div class="about" >
+  <div class="container" >
       
-         <div class='col-md-3'>  
+         <div class='col-md-3' style=" padding:0;">  
             <div class='panel panel-default'>
               <div class='panel-heading'>
-                <img class='img-responsive' id='img-kosong' src='{{$gbr}}'   style='height:255' alt='aaa'/>
+                <img class='img-responsive' id='img-kosong' src='{{$gbr}}'   style='height:300' alt='aaa'/>
               </div>
               <div class='panel-body'>
               </div>
            </div>
          </div>
 
-<div class="col-md-5">
+<div class="col-md-5" >
      <h2><b>{{$nama}} </b></h2>
      <p> {{$harga}}</p>
      <p>{{ $gbr}}</p>
@@ -71,6 +82,29 @@ color:white;
           <input type="submit" class="btn btn-primary" name="submit" value="Tambahkan Ke Daftar Belanja"/> 
     </form>
 </div>
+
+<div class="col-md-4 col-pemilik">
+  <div class="well pemilik">
+    <em>Penjual</em>
+    <center><img src='{{ $fotopenjual }}' alt='' class='img-circle' height='100' width='100' /></center>
+    <center><h4>{{ $namapenjual }}</h4></center>
+ 
+           <center>  <p> <b>Email</b>       <br>
+             {{ $emailpenjual }} </p>
+
+           <p>  No. HP   <br>    
+             {{ $nohppenjual }}  </p>
+          
+          
+          <p>  Bergabung  <br>
+            {{ $tglpenjual }}  </p></center>
+
+    <a class="btn btn-default" href="#chat" style="width:100%">chat penjual</a>
+
+
+  </div>
+</div>
+
 
   </div>
 </div>
