@@ -55,10 +55,15 @@
 				<input type="text" name="carinama" class="form-control"/>
 			</div>			
 			<div class="col-md-4">
-				<select name="carikategori" >
-					
+				<select name="carikategori" class="form-control" >
+					<option value="baju" class="form-control">baju</option>
+					<option value="jaket" class="form-control">jaket</option>
 				</select>
 			</div>
+			<div class="col-md-4">
+				<input type="submit" name="submit" value="Cari" class="btn btn-primary"/>
+			</div>
+
 		</form>
 	</div>
 </div>
