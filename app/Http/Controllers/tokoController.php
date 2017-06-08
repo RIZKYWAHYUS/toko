@@ -142,6 +142,46 @@ class tokoController extends Controller{
         return view('iklanbaru');       
     }
 
+    public function dashboard(){
+
+        $result = DB::select( "SELECT count(*) jml FROM users");
+        $jmluser = $result[0]->jml;
+
+        $result = DB::select("SELECT count(*) jml FROM stock");
+        $jmlstock = $result[0]->jml;
+
+        $result = DB::select("SELECT max(HARGA_BARANG) harga FROM toko.stock");
+        $hargatertinggi = "Rp.".$result[0]->harga.".000,00";
+
+        $result = DB::select("SELECT min(HARGA_BARANG) harga FROM toko.stock");
+        $hargaterendah = "Rp.".$result[0]->harga.".000,00";
+
+        $result = DB::select("SELECT count(*) jml FROM toko.order");
+        $jmlorder = $result[0]->jml;
+
+        $result = DB::select("SELECT       ID_BARANG,
+                                COUNT(ID_BARANG) AS JML 
+                                FROM     toko.order
+                                GROUP BY ID_BARANG
+                                ORDER BY JML DESC
+                                LIMIT    1");
+        $barangpalinglaku = $result[0]->ID_BARANG;
+
+        $result= DB::select("SELECT SUM(BANYAK_ORDER) JML from toko.order where ID_BARANG = :ID",['ID'=>$barangpalinglaku]);
+        $jmlpalinglaku = $result[0]->JML;                            
+
+
+        return view('dashboard', [
+            'jmluser'=>$jmluser,
+            'jmlstock'=>$jmlstock,
+            'hargatertinggi'=>$hargatertinggi,
+            'hargaterendah'=>$hargaterendah,
+            'jmlorder'=>$jmlorder,
+            'barangpalinglaku'=>$barangpalinglaku,
+            'jmlpalinglaku'=>$jmlpalinglaku
+            ]);
+    }
+
 
 }
 ?>

@@ -8,27 +8,8 @@ use App\Http\Requests;
  
 class UserController extends Controller
 {
-    public function index(){
-        return view('upload');
-    }
+    
  
-    public function upload(Request $request){
-        $file = $request->file('filename');
-        echo 'File name :'.$file->getClientOriginalName().'<br>';
-        echo 'File extension :'.$file->getClientOriginalExtension().'<br>';
-        echo 'File path :'.$file->getRealPath().'<br>';
-        echo 'File size :'.$file->getSize().'<br>';
-        echo 'File MIME Type :'.$file->getMimeType().'<br>';
- 
-        //upload file
-        $destinationPath='uploads';
-        $filename = "haha2.".$file->getClientOriginalExtension();
-        if($file->move($destinationPath,$filename)){
-            echo "<img src='uploads/".$filename."'>";
-        }
-    }
-
-
     public function profilku($id){
         $result = DB::select( "SELECT * FROM users where id = :id",['id'=>$id] );
         $nama =  $result[0]->name;
@@ -47,9 +28,6 @@ class UserController extends Controller
     }      
 
     public function simpan(Request $request, $id){
-       
-
-
         $file = $request->file('foto');
         $filename = $request->input('fotolama');
         if(isset($file)){
@@ -72,7 +50,7 @@ class UserController extends Controller
                  ]);
          
 
-          return redirect()->back()->with('status',"berhasil");
+          return redirect()->back();
     }
 
 }

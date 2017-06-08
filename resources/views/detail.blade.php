@@ -34,7 +34,7 @@ color:white;
 @section('content')
 
 
-<div class="laporan container">
+<div class="laporan container"> //notifikasi pemberitahuan berhasil order
     <div class="row">
         <div class="col-md-12">
         @if(isset($status) AND $status=="berhasil")
@@ -42,8 +42,7 @@ color:white;
           Pembelian berhasil <span class="glyphicon glyphicon-ok"></span> 
           </div>
        @endif
-          <div class="alert alert-danger page-scroll hidden" role="alert">
-          Pembelian gagal <span class="glyphicon glyphicon-remove"></span> 
+          
           </div>
         </div>
    </div>

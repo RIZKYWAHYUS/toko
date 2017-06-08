@@ -2,7 +2,7 @@
     <head>
             <link href="{{ asset('../css/app.css') }}" rel="stylesheet">
             <link href="{{ asset('../bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-            
+
             @yield('gaya')
     </head>
     <body>
@@ -15,7 +15,9 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                      <span class="glyphicon glyphicon-menu-hamburger"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="/">Thumbas.com</a>
+                <a class="navbar-brand page-scroll" href="/">
+                    <img src="../img/Logo1.png"  height="25"/>
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,7 +52,7 @@
                                         </li>
                                     @endif
                                     <li>
-                                        <a href="/profile/{{ Auth::user()->id }}">Profile</a> 
+                                        <a href="/profile/{{ Auth::user()->id }}">Profile</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -65,7 +67,7 @@
                                     </li>
                                 </ul>
                             </li>
-                         @endif    
+                         @endif
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -141,7 +143,7 @@
                 <!--/.container-->
             </div>
             <!--/.footer-->
- 
+
             <div class="footer-bottom" style="background-color:#000000" >
                 <div class="container">
                     <p align="center" > Copyright © Footer E-commerce Plugin 2014. All right reserved. class </p>
@@ -159,7 +161,7 @@
 
     </body>
 
-@yield('skrip')   
+@yield('skrip')
 <!-- jQuery -->
 <script src="../vendor/jquery/jquery.min.js"></script>
 

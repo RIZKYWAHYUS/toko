@@ -31,12 +31,11 @@ Route::get('/detail/{id}', 'tokoController@detail');
 Route::post('/detail/{id}', 'tokoController@beli');
 Route::any('/hapus/{table}/{no}','tokoController@hapus');
 
-Route::get('/upload','UserController@index');
-Route::post('/upload','UserController@upload');
+
 Route::get('/profile/{id}','UserController@profilku');
 Route::post('/profile/{id}','UserController@simpan');
 Route::get('/iklanbaru','tokoController@iklanbaru');
-
+Route::get('/dashboard','tokoController@dashboard');
 
 // Route::get('/detail/{id}', 'tokoController@jajal');
 
