@@ -35,6 +35,7 @@ Route::get('/upload','UserController@index');
 Route::post('/upload','UserController@upload');
 Route::get('/profile/{id}','UserController@profilku');
 Route::post('/profile/{id}','UserController@simpan');
+Route::get('/iklanbaru','tokoController@iklanbaru');
 
 
 // Route::get('/detail/{id}', 'tokoController@jajal');

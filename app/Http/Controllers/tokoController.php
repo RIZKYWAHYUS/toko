@@ -138,6 +138,10 @@ class tokoController extends Controller{
         return redirect()->back();
     }
 
+    public function iklanbaru(){
+        return view('iklanbaru');       
+    }
+
 
 }
 ?>
