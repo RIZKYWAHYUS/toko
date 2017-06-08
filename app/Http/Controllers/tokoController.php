@@ -159,16 +159,15 @@ class tokoController extends Controller{
         $result = DB::select("SELECT count(*) jml FROM toko.order");
         $jmlorder = $result[0]->jml;
 
-        $result = DB::select("SELECT       ID_BARANG,
-                                COUNT(ID_BARANG) AS JML 
-                                FROM     toko.order
-                                GROUP BY ID_BARANG
-                                ORDER BY JML DESC
-                                LIMIT    1");
-        $barangpalinglaku = $result[0]->ID_BARANG;
 
-        $result= DB::select("SELECT SUM(BANYAK_ORDER) JML from toko.order where ID_BARANG = :ID",['ID'=>$barangpalinglaku]);
+        $result= DB::select("SELECT ID_BARANG, SUM(BANYAK_ORDER) JML 
+                                from toko.order 
+                                GROUP BY ID_BARANG 
+                                ORDER BY JML DESC
+                                LIMIT 1
+                                ")  ;
         $jmlpalinglaku = $result[0]->JML;                            
+        $barangpalinglaku = $result[0]->ID_BARANG;
 
 
         return view('dashboard', [
