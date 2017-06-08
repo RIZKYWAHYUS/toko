@@ -94,6 +94,12 @@
 						$pemilik = DB::select("SELECT * FROM USERS WHERE ID = :IDNE",['IDNE'=>$stockan->PEMILIK]);
 						$h = $pemilik[0]->id;
 						$fotopemilik = $pemilik[0]->foto;
+						$status="";
+						if($stockan->STOCK_BARANG > 0){
+							$status = "<span class='label label-success'>Ready Stock</span>";
+						}else{
+							$status = "<span class='label label-danger'>Kosong</span>";							
+						}
 
 				echo "<a href='/detail/$stockan->ID_BARANG'>
 						<div class='col-md-3 col-sm-6 col-xs-12'>
@@ -103,7 +109,8 @@
 								</div>
 								<div class='panel-body'>
 									<figcaption>
-									<img src=$fotopemilik alt='' class='img-circle' height='50' width='50' />
+									<img src=$fotopemilik alt='' class='img-circle' height='50' width='50' /> 
+										$status
 										<h4>$nama </h4>
 										<p>$h</p>	
 										<p>$stockan->STOCK_BARANG</p>

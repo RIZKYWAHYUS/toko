@@ -64,6 +64,11 @@ color:white;
          </div>
 
 <div class="col-md-5" >
+      @if( $stock > 0 )
+         <span class='label label-success'>Ready Stock</span>
+			@else
+				 <span class='label label-danger'>Kosong</span>
+      @endif												
      <h2><b>{{$nama}} </b></h2>
      <p> {{$harga}}</p>
      <p>{{ $gbr}}</p>
@@ -86,18 +91,26 @@ color:white;
 <div class="col-md-4 col-pemilik">
   <div class="well pemilik">
     <em>Penjual</em>
-    <center><img src='{{ $fotopenjual }}' alt='' class='img-circle' height='100' width='100' /></center>
-    <center><h4>{{ $namapenjual }}</h4></center>
- 
-           <center>  <p> <b>Email</b>       <br>
-             {{ $emailpenjual }} </p>
-
-           <p>  No. HP   <br>    
-             {{ $nohppenjual }}  </p>
-          
-          
-          <p>  Bergabung  <br>
-            {{ $tglpenjual }}  </p></center>
+    <center>
+      <img src='{{ $fotopenjual }}' alt='' class='img-circle' height='100' width='100' />
+    </center>
+    <center>
+      <h4>
+        {{ $namapenjual }}
+      </h4>
+    </center>
+    <center>
+      <p>
+        <b>Email</b><br>
+        {{ $emailpenjual }}
+      </p>
+      <p>No. HP<br>    
+       {{ $nohppenjual }}  
+      </p>
+      <p>Bergabung<br>
+      {{ $tglpenjual }}  
+      </p>
+    </center>
 
     <a class="btn btn-default" href="#chat" style="width:100%">chat penjual</a>
 

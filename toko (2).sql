@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 07 Jun 2017 pada 09.08
+-- Generation Time: 08 Jun 2017 pada 04.10
 -- Versi Server: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -54,8 +54,12 @@ CREATE TABLE `order` (
 
 INSERT INTO `order` (`NO`, `ID_ORDER`, `ATAS_NAMA`, `ID_BARANG`, `BANYAK_ORDER`, `created_at`, `updated_at`) VALUES
 (34, 'ORD001', 'admin', 'J12', 44, '2017-06-03 18:55:53', '2017-06-03 18:55:53'),
-(35, 'ORD001', 'admin', 'J14', 5, '2017-06-04 22:08:31', '2017-06-04 22:08:31'),
-(36, 'ORD001', 'admin', 'J10', 9, '2017-06-05 01:35:55', '2017-06-05 01:35:55');
+(36, 'ORD001', 'admin', 'J10', 9, '2017-06-05 01:35:55', '2017-06-05 01:35:55'),
+(37, 'ORD001', 'unknow', 'K08', 1, '2017-06-07 02:15:09', '2017-06-07 02:15:09'),
+(38, 'ORD001', 'tejo', 'J07', 99, '2017-06-07 12:56:29', '2017-06-07 12:56:29'),
+(39, 'ORD001', 'tejo', 'J10', 91, '2017-06-07 12:57:42', '2017-06-07 12:57:42'),
+(40, 'ORD001', 'tejo', 'J10', 1, '2017-06-07 13:01:43', '2017-06-07 13:01:43'),
+(41, 'ORD001', 'tejo', 'J09', 100, '2017-06-07 13:02:03', '2017-06-07 13:02:03');
 
 --
 -- Trigger `order`
@@ -79,38 +83,40 @@ CREATE TABLE `stock` (
   `STOCK_BARANG` int(11) NOT NULL,
   `HARGA_BARANG` int(11) NOT NULL,
   `ukuran` varchar(45) DEFAULT NULL,
-  `FOTO` varchar(45) DEFAULT NULL
+  `FOTO` varchar(45) DEFAULT NULL,
+  `PEMILIK` int(10) NOT NULL,
+  `KATEGORI` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `stock`
 --
 
-INSERT INTO `stock` (`ID_BARANG`, `NAMA_BARANG`, `STOCK_BARANG`, `HARGA_BARANG`, `ukuran`, `FOTO`) VALUES
-('J03', 'Jaket Baseball Warna Biru', 100, 175, 'S, M, L, XL', 'J03.jpg\r'),
-('J04', 'Sport Orange', 100, 101, 'S, M, L, XL', 'J04.jpg\r'),
-('J05', 'Hoodie Biru', 100, 99, 'L, XL, XXL', 'J05.jpg\r'),
-('J06', 'Jangkies warna Abu-abu', 100, 70, 'M, L, XL', 'J06.jpg\r'),
-('J07', 'Jaket Sport Warna Biru', 99, 450, 'S, M, L, XL', 'J07.jpg\r'),
-('J08', 'Jaket Baseball Warna Abu-abu', 100, 175, 'L, XL, XXL', 'J08.jpg\r'),
-('J09', 'Hodiie Black', 100, 155, 'L, XL, XXL', 'J09.jpg\r'),
-('J10', 'Alan Walker Black', 91, 75, 'S, M, L, XL', 'J10.jpg\r'),
-('J11', 'Jaket Sporty', 100, 355, 'S, M, L, XL, XXL', 'J11.jpg\r'),
-('J12', 'Bomber INV Velix', -54, 299, 'L, XL, XXL', 'J12.jpg\r'),
-('J13', 'Jaket Parka', 100, 100, 'M, L, XL', 'J13.jpg\r'),
-('J14', 'Jaket Gunung warna Abu-abu', 95, 85, 'XL', 'J14.jpg\r'),
-('J15', 'Parka Waterproof Maroon', 100, 195, 'L, XL, XXL', 'J15.jpg\r'),
-('J16', 'Jaket Bomber INV Black Simple', 100, 65, 'S, M, L, XL', 'J16.jpg\r'),
-('K01', 'Kaos 3/4 lengan Hitam', 100, 195, 'L, XL, XXL', 'K01.jpg\r'),
-('K02', 'Never warna Abu-abu', 100, 155, 'M, L, XL', 'K02.jpg\r'),
-('K03', 'Kaos Lengan Panjang Warna Putih Biru', 100, 75, 'XL', 'K03.jpg\r'),
-('K04', 'Kaos pendek Putih', 100, 355, 'L, XL, XXL', 'K04.jpg\r'),
-('K05', 'Polo Biru', 100, 70, 'S, M, L, XL', 'K05.jpg\r'),
-('K06', 'Kaos Polos Biru', 100, 450, 'S, M, L, XL, XXL', 'K06.jpg\r'),
-('K07', 'Kaos Polos Hitam', 100, 299, 'L, XL, XXL', 'K07.jpg\r'),
-('K08', 'Kaos Polos Putih', 100, 100, 'M, L, XL', 'K08.jpg\r'),
-('K09', 'Kaos Gambar Hewan warna Putih', 100, 195, 'XL', 'K09.jpg\r'),
-('K10', 'Kaos Surf Abu-abu', 100, 65, 'L, XL, XXL', 'K10.jpg\r');
+INSERT INTO `stock` (`ID_BARANG`, `NAMA_BARANG`, `STOCK_BARANG`, `HARGA_BARANG`, `ukuran`, `FOTO`, `PEMILIK`, `KATEGORI`) VALUES
+('J03', 'Jaket Baseball Warna Biru', 100, 175, 'S, M, L, XL', 'J03.jpg\r', 1, 'JAKET'),
+('J04', 'Sport Orange', 100, 101, 'S, M, L, XL', 'J04.jpg\r', 1, 'JAKET'),
+('J05', 'Hoodie Biru', 100, 99, 'L, XL, XXL', 'J05.jpg\r', 1, 'JAKET'),
+('J06', 'Jangkies warna Abu-abu', 100, 70, 'M, L, XL', 'J06.jpg\r', 1, 'JAKET'),
+('J07', 'Jaket Sport Warna Biru', 0, 450, 'S, M, L, XL', 'J07.jpg\r', 1, 'JAKET'),
+('J08', 'Jaket Baseball Warna Abu-abu', 100, 175, 'L, XL, XXL', 'J08.jpg\r', 1, 'JAKET'),
+('J09', 'Hodiie Black', 0, 155, 'L, XL, XXL', 'J09.jpg\r', 3, 'JAKET'),
+('J10', 'Alan Walker Black', -1, 75, 'S, M, L, XL', 'J10.jpg\r', 1, 'JAKET'),
+('J11', 'Jaket Sporty', 100, 355, 'S, M, L, XL, XXL', 'J11.jpg\r', 1, 'JAKET'),
+('J12', 'Bomber INV Velix', -54, 299, 'L, XL, XXL', 'J12.jpg\r', 1, 'JAKET'),
+('J13', 'Jaket Parka', 100, 100, 'M, L, XL', 'J13.jpg\r', 3, 'JAKET'),
+('J14', 'Jaket Gunung warna Abu-abu', 95, 85, 'XL', 'J14.jpg\r', 1, 'JAKET'),
+('J15', 'Parka Waterproof Maroon', 100, 195, 'L, XL, XXL', 'J15.jpg\r', 3, 'JAKET'),
+('J16', 'Jaket Bomber INV Black Simple', 100, 65, 'S, M, L, XL', 'J16.jpg\r', 3, 'JAKET'),
+('K01', 'Kaos 3/4 lengan Hitam', 100, 195, 'L, XL, XXL', 'K01.jpg\r', 1, 'KAOS'),
+('K02', 'Never warna Abu-abu', 100, 155, 'M, L, XL', 'K02.jpg\r', 3, 'KAOS'),
+('K03', 'Kaos Lengan Panjang Warna Putih Biru', 100, 75, 'XL', 'K03.jpg\r', 3, 'KAOS'),
+('K04', 'Kaos pendek Putih', 100, 355, 'L, XL, XXL', 'K04.jpg\r', 1, 'KAOS'),
+('K05', 'Polo Biru', 100, 70, 'S, M, L, XL', 'K05.jpg\r', 1, 'KAOS'),
+('K06', 'Kaos Polos Biru', 100, 450, 'S, M, L, XL, XXL', 'K06.jpg\r', 1, 'KAOS'),
+('K07', 'Kaos Polos Hitam', 100, 299, 'L, XL, XXL', 'K07.jpg\r', 3, 'KAOS'),
+('K08', 'Kaos Polos Putih', 99, 100, 'M, L, XL', 'K08.jpg\r', 3, 'KAOS'),
+('K09', 'Kaos Gambar Hewan warna Putih', 100, 195, 'XL', 'K09.jpg\r', 3, 'KAOS'),
+('K10', 'Kaos Surf Abu-abu', 100, 65, 'L, XL, XXL', 'K10.jpg\r', 1, 'KAOS');
 
 -- --------------------------------------------------------
 
@@ -161,8 +167,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `foto`, `TGL_LAHIR`, `NO_HP`) VALUES
+(1, 'tejo', 'tejo@mail.com', '$2y$10$qmFOLg/az24TsnqJJkcexuz54dPdHkhjWAYlcQkI5QdKhetROvbCG', NULL, '2017-06-07 10:03:36', '2017-06-07 10:03:36', '../uploads/../uploads/../uploads/blank.jpg', '10-11-1996', '085735828004'),
 (2, 'admin', 'admin@mail.com', '$2y$10$A8mVGLEvJwn8bZtu88Q3r.XJs24g1AYMCWZrM8AeLmy6UWYa/9X9e', 'gc6p5iYceOcTvc87JNQ6EVFFvzgkyD6vkdtzuKaSybuMKtMrENMF0m61jFo5', '2017-06-03 00:43:43', '2017-06-03 00:43:43', '../uploads/blank.jpg', NULL, NULL),
-(3, 'joko', 'joko@mail.com', '$2y$10$xSHT.noUXAuuy6l6NrKFKOZas6SJ1zE4n/B678zUhXpMFq8tc5hG6', 'VBpVh7h9PnXhFBb53mKxTDJqaGzEkmuOKud8uXFvZJcRAyHDEqJQcN6LeTxt', '2017-06-04 07:31:54', '2017-06-04 07:31:54', '../uploads/joko@mail.com.jpg', '11-10-1996', '085735828004');
+(3, 'joko', 'joko@mail.com', '$2y$10$xSHT.noUXAuuy6l6NrKFKOZas6SJ1zE4n/B678zUhXpMFq8tc5hG6', 'W0GJi9LjMgriqEO4JASf8SwEP5YCzBxnXijtf8v60XBZWJBKSGplhDqmIt0u', '2017-06-04 07:31:54', '2017-06-04 07:31:54', '../uploads/joko@mail.com.jpg', '11-10-1996rrrr', '085735828004rrrr');
 
 --
 -- Indexes for dumped tables
@@ -212,7 +219,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT for table `stok`
 --
