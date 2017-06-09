@@ -181,6 +181,10 @@ class tokoController extends Controller{
             ]);
     }
 
+     public function simpaniklan(Request $request){
+
+     }
+
 
 }
 ?>
