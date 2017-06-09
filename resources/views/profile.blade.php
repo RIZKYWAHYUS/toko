@@ -38,21 +38,6 @@
 @endsection
 
 @section('content')
-
-
-        <div class="laporan container">
-            <div class="row">
-                <div class="col-md-12">
-                @if(isset($status))
-                <div class="alert alert-success page-scroll" role="alert">
-                Pembelian berhasil <span class="glyphicon glyphicon-ok"></span> 
-                </div>
-                @endif
-                </div>
-            </div>
-        </div>
-
-
 <div class="container isi">
     <div class="row panel panel-default">
         <div class="col-md-3 poto">

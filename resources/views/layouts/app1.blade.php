@@ -48,7 +48,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     @if( Auth::user()->name == 'admin')
                                         <li>
-                                            <a href="/tambah">Dashboard</a>
+                                            <a href="/dashboard">Dashboard</a>
                                         </li>
                                     @endif
                                     <li>
