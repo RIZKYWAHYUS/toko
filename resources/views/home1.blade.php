@@ -21,7 +21,11 @@
 			color : white;
 		}
 		.cari{
+<<<<<<< HEAD
 			height : 200;
+=======
+			height : 100;
+>>>>>>> 1115d8e1deededfb26ab76523c5d35f6f85ecc3b
 		}
 		.tambah-iklan{
 			margin-top : -30;
@@ -61,10 +65,15 @@
 	<div class="row">
 
 		<form action="" method="get">
+<<<<<<< HEAD
 
 			<div class="col-md-2">
 
 			</div>
+=======
+			<div class="col-md-2">
+					</div>
+>>>>>>> 1115d8e1deededfb26ab76523c5d35f6f85ecc3b
 			<div class="col-md-4">
 				<input type="text" name="carinama" class="form-control" placeholder="Search">
 			</div>
@@ -78,6 +87,7 @@
 				<input type="submit" name="submit" value="Cari" class="btn btn-primary"/>
 			</div>
 		</form>
+
 	</div>
 </div>
 

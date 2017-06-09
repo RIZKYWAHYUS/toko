@@ -6,7 +6,6 @@
         margin-top:80;
     }
 </style>
-
 @endsection
 
 
@@ -28,6 +27,10 @@
                 <div class="form-group">
                     <label>Persediaan Stock</label>
                     <input type="text" name="stock" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Ukuran</label>
+                    <input type="ukuran" name="stock" class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label>Kategori</label>
