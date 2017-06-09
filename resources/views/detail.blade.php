@@ -34,7 +34,7 @@ color:white;
 @section('content')
 
 
-<div class="laporan container"> //notifikasi pemberitahuan berhasil order
+<div class="laporan container"> 
     <div class="row">
         <div class="col-md-12">
         @if(isset($status) AND $status=="berhasil")
