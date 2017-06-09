@@ -7,7 +7,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 
 class tokoController extends Controller{
-  
+
 
     public function tambah()
     {
@@ -41,16 +41,16 @@ class tokoController extends Controller{
         $gbr = "../img/".$barang->FOTO;
         $nama = $barang->NAMA_BARANG;
         $harga = "Rp.".$barang->HARGA_BARANG.".000,00";
-        $stock = $barang->STOCK_BARANG." pcs"; 
+        $stock = $barang->STOCK_BARANG." pcs";
 
         $result = DB::select( "SELECT * FROM users where id = :id",['id'=>$barang->PEMILIK] );
-   
+        
         $namapenjual =  $result[0]->name;
         $fotopenjual = $result[0]->foto;
         $emailpenjual = $result[0]->email;
         $nohppenjual = $result[0]->NO_HP;
         $tglpenjual = $result[0]->created_at;
-      
+
 
         $isiDetail = [
             'id'=>$id,
@@ -97,7 +97,7 @@ class tokoController extends Controller{
 
 
         $result = DB::select( "SELECT * FROM users where id = :id",['id'=>$barang->PEMILIK] );
-   
+
         $namapenjual =  $result[0]->name;
         $fotopenjual = $result[0]->foto;
         $emailpenjual = $result[0]->email;
@@ -139,7 +139,7 @@ class tokoController extends Controller{
     }
 
     public function iklanbaru(){
-        return view('iklanbaru');       
+        return view('iklanbaru');
     }
 
     public function dashboard(){
@@ -188,4 +188,3 @@ class tokoController extends Controller{
 
 }
 ?>
-
