@@ -83,14 +83,14 @@ class tokoController extends Controller{
         $order = new Order();
         $order->ID_ORDER = "ORD001";  //perlu diperbaiki
         $order->ATAS_NAMA = $pembeli ;
-        $order->ID = $id;
+        $order->ID_BARANG = $id;
         $order->BANYAK_ORDER = $beli;
         $order->save();
 
         $status = "berhasil";
 
         $barang = new Stock();
-        $barang = $barang->where('ID_BARANG', $id)->first();
+        $barang = $barang->where('ID', $id)->first();
         $gbr = "../img/".$barang->FOTO;
         $nama = $barang->NAMA_BARANG;
         $harga = "Rp.".$barang->HARGA_BARANG.".000,00";
@@ -203,8 +203,8 @@ class tokoController extends Controller{
             $iklanbaru->FOTO = "../uploads/iklan/".$filename;
             $iklanbaru->save();
 
-            $status = "berhasil";
-            return redirect('/iklanbaru')->with('status',$status);
+            
+            return redirect('/iklanbaru');
      }
 
      public function editiklan($id){
