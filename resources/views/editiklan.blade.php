@@ -21,7 +21,9 @@
             <img src="{{ $gbr }}" height="200" />
         </div>
         <div class="col-md-6">
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data" >
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="fotolama" value="{{ $gbr }}" />
                 <div class="form-group">
                     <label>Nama Barang</label>
                     <input type="text" name="namabarang" value="{{ $nama }}" placeholder="namaiklan" class="form-control"/>
@@ -47,7 +49,7 @@
                 </div>
                 <div class="form-group">
                     <label>Ubah Foto</label>
-                    <input type="file" name="fotobaru" placeholder="namaiklan" class="form-control-file"/>
+                    <input type="file" name="fotobaru" class="form-control-file"/>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="simpan" name="simpan" class="btn btn-primary"/>
