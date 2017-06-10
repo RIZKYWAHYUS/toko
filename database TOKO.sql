@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 10 Jun 2017 pada 05.50
+-- Generation Time: 10 Jun 2017 pada 13.27
 -- Versi Server: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -19,6 +19,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `toko`
 --
+DROP DATABASE IF EXISTS `toko`;
+CREATE DATABASE IF NOT EXISTS `toko` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `toko`;
 
 -- --------------------------------------------------------
 
@@ -58,7 +61,8 @@ INSERT INTO `order` (`NO`, `ID_ORDER`, `ATAS_NAMA`, `ID_BARANG`, `BANYAK_ORDER`,
 (49, 'ORD001', 'unknow', 'J11', 1, '2017-06-08 11:48:16', '2017-06-08 11:48:16'),
 (51, 'ORD001', 'tejo', '13', 1, '2017-06-09 20:46:17', '2017-06-09 20:46:17'),
 (52, 'ORD001', 'tejo', '13', 1, '2017-06-09 20:49:32', '2017-06-09 20:49:32'),
-(53, 'ORD001', 'tejo', '13', 99, '2017-06-09 20:49:39', '2017-06-09 20:49:39');
+(53, 'ORD001', 'tejo', '13', 99, '2017-06-09 20:49:39', '2017-06-09 20:49:39'),
+(54, 'ORD001', 'tejo', '24', 1, '2017-06-09 21:05:26', '2017-06-09 21:05:26');
 
 --
 -- Trigger `order`
@@ -115,8 +119,8 @@ INSERT INTO `stock` (`ID_BARANG`, `ID`, `NAMA_BARANG`, `STOCK_BARANG`, `HARGA_BA
 ('K07', 21, 'Kaos Polos Hitam', 100, 299, 'L, XL, XXL', 'K07.jpg\r', 3, 'KAOS', NULL, NULL),
 ('K08', 22, 'Kaos Polos Putih', 99, 100, 'M, L, XL', 'K08.jpg\r', 3, 'KAOS', NULL, NULL),
 ('K09', 23, 'Kaos Gambar Hewan warna Putih', 100, 195, 'XL', 'K09.jpg\r', 3, 'KAOS', NULL, NULL),
-('K10', 24, 'Kaos Surf Abu-abu', 100, 65, 'L, XL, XXL', 'K10.jpg\r', 1, 'KAOS', NULL, NULL),
-(NULL, 33, 'Kaos Oblong', 4, 45, 'L', '../uploads/iklan/1497033953.jpg', 2, 'kaos', '2017-06-09 11:45:53', '2017-06-09 11:45:53'),
+('K10', 24, 'Kaos Surf Abu-abu', 99, 65, 'L, XL, XXL', 'K10.jpg\r', 1, 'KAOS', NULL, NULL),
+(NULL, 33, 'Kaos Oblong33', 4, 45, 'L', '../uploads/1497093942.png', 2, 'jaket', '2017-06-09 11:45:53', '2017-06-09 11:45:53'),
 (NULL, 34, 'Jaket Rombeng', 3, 99, 'L', '../uploads/iklan/1497034065.png', 1, 'jaket', '2017-06-09 11:47:45', '2017-06-09 11:47:45'),
 (NULL, 35, 'Jaket Rombeng', 3, 99, 'L', '../uploads/iklan/1497034097.png', 1, 'jaket', '2017-06-09 11:48:17', '2017-06-09 11:48:17'),
 (NULL, 36, 'Jaket Rombeng', 3, 99, 'L', '../uploads/iklan/1497034108.png', 1, 'jaket', '2017-06-09 11:48:28', '2017-06-09 11:48:28'),
@@ -125,8 +129,7 @@ INSERT INTO `stock` (`ID_BARANG`, `ID`, `NAMA_BARANG`, `STOCK_BARANG`, `HARGA_BA
 (NULL, 39, 'Jaket Parka', 3, 990, 'L', '../uploads/iklan/1497034295.jpg', 1, 'jaket', '2017-06-09 11:51:35', '2017-06-09 11:51:35'),
 (NULL, 40, 'Kaos Oblong 2', 7, 66, 'L', '../uploads/iklan/1497034446.jpg', 1, 'kaos', '2017-06-09 11:54:06', '2017-06-09 11:54:06'),
 (NULL, 44, 'nbnb', 2, 65, 'ee', '../uploads/iklan/1497063873.jpg', 1, 'jaket', '2017-06-09 20:04:33', '2017-06-09 20:04:33'),
-(NULL, 45, 'Kaos Oblong 99999', 4, 45, 'L', '../uploads/iklan/1497064686.jpg', 2, 'kaos', '2017-06-09 20:18:07', '2017-06-09 20:18:07'),
-(NULL, 46, 'baju', 23, 45000, 'M', '../uploads/iklan/1497065061.jpg', 2, 'kaos', '2017-06-09 20:24:22', '2017-06-09 20:24:22');
+(NULL, 45, 'Kaos Oblong 99999', 4, 45, 'L', '../uploads/iklan/1497064686.jpg', 2, 'kaos', '2017-06-09 20:18:07', '2017-06-09 20:18:07');
 
 -- --------------------------------------------------------
 
@@ -231,7 +234,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `NO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT for table `stock`
 --

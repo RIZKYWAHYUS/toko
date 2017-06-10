@@ -213,8 +213,8 @@ class tokoController extends Controller{
 
         $gbr = "../img/".$barang->FOTO;
         $nama = $barang->NAMA_BARANG;
-        $harga = "Rp.".$barang->HARGA_BARANG.".000,00";
-        $stock = $barang->STOCK_BARANG." pcs";
+        $harga = $barang->HARGA_BARANG;
+        $stock = $barang->STOCK_BARANG;
         $ukuran = $barang->ukuran;
         $kategori = $barang->KATEGORI;
       
@@ -230,6 +230,33 @@ class tokoController extends Controller{
 
          return view('editiklan',$isiDetail);
      }
+     
+     public function simpaneditiklan(Request $request, $id){
+        $file = $request->file('fotobaru');
+        $filename = $request->input('fotolama');
+        if(isset($file)){
+        //upload file
+        $wkt =  time();
+        $destinationPath='uploads';
+        $filename ='../uploads/'.$wkt.".".$file->getClientOriginalExtension();
+        $haha = $file->move($destinationPath,$filename);
+        }
+          
+          DB::table('stock')
+              ->where('ID',$id)
+              ->update(
+                 ['NAMA_BARANG'=>$request->input('namabarang'),
+                  'STOCK_BARANG'=>$request->input('stockbarang'),
+                  'HARGA_BARANG'=>$request->input('hargabarang'),
+                  'ukuran'=>$request->input('ukuran'),
+                  'FOTO'=>$filename,
+                  'KATEGORI'=>$request->input('kategori')
+                 ]);
+
+
+         return redirect()->back();
+     }
+
 
 
 }

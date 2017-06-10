@@ -37,6 +37,7 @@ Route::post('/profile/{id}','UserController@simpan');
 Route::get('/iklanbaru','tokoController@iklanbaru');
 Route::post('/simpaniklan','tokoController@simpaniklan');
 Route::get('/editiklan/{id}','tokoController@editiklan');
+Route::post('/editiklan/{id}','tokoController@simpaneditiklan');
 Route::get('/dashboard','tokoController@dashboard');
 
 // Route::get('/detail/{id}', 'tokoController@jajal');
