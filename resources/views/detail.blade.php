@@ -6,7 +6,11 @@
 .laporan {
   margin-top:80px;
 }
-
+.komentar {
+  min-height: 150;
+  width: 1140;
+  margin-top: 20px;
+}
 .about{
   margin-top:10px;
   margin-bottom:200px;
@@ -34,7 +38,7 @@ color:white;
 @section('content')
 
 
-<div class="laporan container"> 
+<div class="laporan container">
     <div class="row">
         <div class="col-md-12">
         @if(isset($status) AND $status=="berhasil")
@@ -69,7 +73,7 @@ color:white;
       @endif
      <h2><b>{{$nama}} </b></h2>
      <p> {{$harga}}</p>
-     
+
      <p>Ready  {{$stock}} </p>
     <form action="" method="post">
                    Jumah pembelian :
@@ -111,13 +115,37 @@ color:white;
     </center>
 
     <a class="btn btn-default" href="#chat" style="width:100%">chat penjual</a>
+  </div>
+</div>
+
+<div class="form-group">
+<label for="comment">Comment:</label>
+
+ <textarea class="form-control" rows="5" id="comment"></textarea>
+
+</div>
+<div class="row">
+<div class="col-md-11">
+</div>
+<div class="col-md-1">
+  <input type="submit" class="btn btn-primary" name="submit" value="Kirim"/>
+</div>
+</div>
+           <div class="well komentar">
+             <div class="media-left">
+               <img src="img_avatar1.png" class="media-object" style="width:60px">
+             </div>
+             <div class="media-body">
+               <h4 class="media-heading">John Doe</h4>
+               <p>Lorem ipsum...</p>
+             </div>
+           </div>
+            </div>
+
 
 
   </div>
 </div>
 
-
-  </div>
-</div>
 
 @endsection

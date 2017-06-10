@@ -45,7 +45,7 @@ class tokoController extends Controller{
         $stock = $barang->STOCK_BARANG." pcs";
 
         $result = DB::select( "SELECT * FROM users where id = :id",['id'=>$barang->PEMILIK] );
-        
+
         $namapenjual =  $result[0]->name;
         $fotopenjual = $result[0]->foto;
         $emailpenjual = $result[0]->email;
@@ -160,14 +160,14 @@ class tokoController extends Controller{
         $result = DB::select("SELECT count(*) jml FROM toko.order");
         $jmlorder = $result[0]->jml;
 
-
-        $result= DB::select("SELECT ID_BARANG, SUM(BANYAK_ORDER) JML 
-                                from toko.order 
-                                GROUP BY ID_BARANG 
+s
+        $result= DB::select("SELECT ID_BARANG, SUM(BANYAK_ORDER) JML
+                                from toko.order
+                                GROUP BY ID_BARANG
                                 ORDER BY JML DESC
                                 LIMIT 1
                                 ")  ;
-        $jmlpalinglaku = $result[0]->JML;                            
+        $jmlpalinglaku = $result[0]->JML;
         $barangpalinglaku = $result[0]->ID_BARANG;
 
 
