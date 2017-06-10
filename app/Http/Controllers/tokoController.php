@@ -37,7 +37,8 @@ class tokoController extends Controller{
         // echo $id;
 
         $barang = new Stock();
-        $barang = $barang->where('ID_BARANG', $id)->first();
+        $barang = $barang->where('ID', $id)->first();
+
         $gbr = "../img/".$barang->FOTO;
         $nama = $barang->NAMA_BARANG;
         $harga = "Rp.".$barang->HARGA_BARANG.".000,00";
@@ -82,7 +83,7 @@ class tokoController extends Controller{
         $order = new Order();
         $order->ID_ORDER = "ORD001";  //perlu diperbaiki
         $order->ATAS_NAMA = $pembeli ;
-        $order->ID_BARANG = $id;
+        $order->ID = $id;
         $order->BANYAK_ORDER = $beli;
         $order->save();
 
@@ -130,7 +131,7 @@ class tokoController extends Controller{
             $table->delete();
         }else if($table =="stock"){
             $table = new Stock();
-            $table = $table->where('ID_BARANG',$no);
+            $table = $table->where('ID',$no);
             $table->delete();
         }else if($table =="users"){
             $deleted = DB::delete('delete from users where id = :no', ['no'=>$no]);
@@ -182,7 +183,28 @@ class tokoController extends Controller{
     }
 
      public function simpaniklan(Request $request){
+        $file = $request->file('gambarbarang');
+        $filename = time();
 
+        //upload file
+        $destinationPath='uploads/iklan';
+        $filename = $filename.".".$file->getClientOriginalExtension();
+        $haha = $file->move($destinationPath,$filename);
+      
+
+
+            $iklanbaru = new Stock();
+            $iklanbaru->NAMA_BARANG = $request->input('namabarang');
+            $iklanbaru->HARGA_BARANG = $request->input('harga');
+            $iklanbaru->STOCK_BARANG = $request->input('stock');
+            $iklanbaru->ukuran = $request->input('ukuran');
+            $iklanbaru->KATEGORI = $request->input('kategori');
+            $iklanbaru->PEMILIK = $request->input('pemilik');
+            $iklanbaru->FOTO = "../uploads/iklan/".$filename;
+            $iklanbaru->save();
+
+            $status = "berhasil";
+            return redirect('/iklanbaru')->with('status',$status);
      }
 
 

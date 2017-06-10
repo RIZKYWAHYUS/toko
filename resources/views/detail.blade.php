@@ -42,12 +42,6 @@ color:white;
           Pembelian berhasil <span class="glyphicon glyphicon-ok"></span>
           </div>
        @endif
-<<<<<<< HEAD
-          <div class="alert alert-danger page-scroll hidden" role="alert">
-          Pembelian gagal <span class="glyphicon glyphicon-remove"></span>
-=======
-          
->>>>>>> 1115d8e1deededfb26ab76523c5d35f6f85ecc3b
           </div>
         </div>
    </div>

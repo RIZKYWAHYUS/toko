@@ -95,9 +95,7 @@
 <div class="container-fluid tambah-iklan bg-primary">
 	<center>
 	<h2>Bikin iklan? </h2>
-	<form action="/iklanbaru" method="get">
-		<input type="submit" name ="bikiniklan" value="bikin" class="btn btn-success"/>
-	</form>
+	<a class="btn btn-success" href="/iklanbaru">Bikin</a>
 	</center>
 
 </div>
@@ -125,7 +123,7 @@
 							$status = "<span class='label label-danger'>Kosong</span>";
 						}
 
-				echo "<a href='/detail/$stockan->ID_BARANG'>
+				echo "<a href='/detail/$stockan->ID'>
 						<div class='col-md-3 col-sm-6 col-xs-12'>
 							<div class='panel panel-default kotakan'>
 								<div class='panel-heading'>
