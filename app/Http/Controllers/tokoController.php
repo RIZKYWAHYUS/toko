@@ -160,7 +160,7 @@ class tokoController extends Controller{
         $result = DB::select("SELECT count(*) jml FROM toko.order");
         $jmlorder = $result[0]->jml;
 
-s
+
         $result= DB::select("SELECT ID_BARANG, SUM(BANYAK_ORDER) JML
                                 from toko.order
                                 GROUP BY ID_BARANG
@@ -205,6 +205,30 @@ s
 
             $status = "berhasil";
             return redirect('/iklanbaru')->with('status',$status);
+     }
+
+     public function editiklan($id){
+         $barang = new Stock();
+        $barang = $barang->where('ID', $id)->first();
+
+        $gbr = "../img/".$barang->FOTO;
+        $nama = $barang->NAMA_BARANG;
+        $harga = "Rp.".$barang->HARGA_BARANG.".000,00";
+        $stock = $barang->STOCK_BARANG." pcs";
+        $ukuran = $barang->ukuran;
+        $kategori = $barang->KATEGORI;
+      
+
+        $isiDetail = [
+            'id'=>$id,
+            'nama'=>$nama,
+            'harga'=>$harga,
+            'stock'=>$stock,
+            'gbr'=>$gbr,
+            'ukuran'=>$ukuran
+            ];
+
+         return view('editiklan',$isiDetail);
      }
 
 

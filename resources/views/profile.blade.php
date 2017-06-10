@@ -137,7 +137,7 @@
                                     <td>$stockan->HARGA_BARANG.000</td>
                                     <td>$stockan->PEMILIK</td>
                                     <td>
-                                        <a type='submit' class='btn btn-default' href='/hapus/stock/$stockan->ID'>
+                                        <a type='submit' class='btn btn-default' href='/editiklan/$stockan->ID'>
                                                 <span class='glyphicon glyphicon-pencil'></span>
                                         </a>
                                         <a type='submit' class='btn btn-default' href='/hapus/stock/$stockan->ID'>
