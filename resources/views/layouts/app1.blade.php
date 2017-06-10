@@ -14,6 +14,7 @@
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                      <span class="glyphicon glyphicon-menu-hamburger"></span>
+                     
                 </button>
                 <a class="navbar-brand page-scroll" href="/">
                     <img src="../img/Logo1.png"  height="25"/>

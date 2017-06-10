@@ -7,7 +7,7 @@
     }
 
     .isi {
-
+        margin-top : 80;
     }
 
     .poto{
@@ -102,4 +102,56 @@
         </div>
     </div> 
 </div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-success" href="/iklanbaru">
+                buat iklan
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <th>ID</th>
+                    <th>Nama</th>
+                    <th>Harga</th>
+                    <th>Jumlah Stock</th>
+                    <th>Pemilik</th>
+                </thead>
+                <tbody>
+ <?php  
+                        use App\Stock;
+                        $daftarStock = DB::select("SELECT * FROM stock where PEMILIK = :iduser",['iduser'=>$iduser]);
+                        foreach ($daftarStock as $stockan) {
+                       echo   "<tr>
+                                    <td>$stockan->ID</td>
+                                    <td>$stockan->NAMA_BARANG</td>
+                                    <td>$stockan->STOCK_BARANG</td>
+                                    <td>$stockan->HARGA_BARANG.000</td>
+                                    <td>$stockan->PEMILIK</td>
+                                    <td>
+                                        <a type='submit' class='btn btn-default' href='/editiklan/$stockan->ID'>
+                                                <span class='glyphicon glyphicon-pencil'></span>
+                                        </a>
+                                        <a type='submit' class='btn btn-default' href='/hapus/stock/$stockan->ID'>
+                                                <span class='glyphicon glyphicon-trash'></span>
+                                        </a>
+                                    </td>                                    
+                                </tr>";
+                            
+                           }
+                       ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 @endsection

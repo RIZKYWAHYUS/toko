@@ -157,12 +157,12 @@
                         $daftarStock = App\Stock::all();
                         foreach ($daftarStock as $stockan) {
                        echo   "<tr>
-                                    <td>$stockan->ID_BARANG</td>
+                                    <td>$stockan->ID</td>
                                     <td>$stockan->NAMA_BARANG</td>
                                     <td>$stockan->STOCK_BARANG</td>
                                     <td>$stockan->HARGA_BARANG.000</td>
                                     <td>
-                                        <a type='submit' class='btn btn-default' href='/hapus/stock/$stockan->ID_BARANG'>
+                                        <a type='submit' class='btn btn-default' href='/hapus/stock/$stockan->ID'>
                                                 <span class='glyphicon glyphicon-remove'></span>
                                         </a>
                                     </td>                                    

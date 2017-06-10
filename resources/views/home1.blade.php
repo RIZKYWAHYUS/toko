@@ -21,11 +21,7 @@
 			color : white;
 		}
 		.cari{
-<<<<<<< HEAD
 			height : 200;
-=======
-			height : 100;
->>>>>>> 1115d8e1deededfb26ab76523c5d35f6f85ecc3b
 		}
 		.tambah-iklan{
 			margin-top : -30;
@@ -55,25 +51,19 @@
 
 <div class="container-fluid cari">
 <div class="row">
-	<div class="col-md-2">
+	<div class="col-md-4">
 
 	</div>
-	<div class="col-md-10">
+	<div class="col-md-8">
 		<h2>Cari Barang Yang Anda Inginkan Disini</h2>
 			</div>
-	</div class="row">
+	</div>
 	<div class="row">
-
 		<form action="" method="get">
-<<<<<<< HEAD
 
-			<div class="col-md-2">
-
-			</div>
-=======
 			<div class="col-md-2">
 					</div>
->>>>>>> 1115d8e1deededfb26ab76523c5d35f6f85ecc3b
+
 			<div class="col-md-4">
 				<input type="text" name="carinama" class="form-control" placeholder="Search">
 			</div>
@@ -95,9 +85,7 @@
 <div class="container-fluid tambah-iklan bg-primary">
 	<center>
 	<h2>Bikin iklan? </h2>
-	<form action="/iklanbaru" method="get">
-		<input type="submit" name ="bikiniklan" value="bikin" class="btn btn-success"/>
-	</form>
+	<a class="btn btn-success" href="/iklanbaru">Bikin</a>
 	</center>
 
 </div>
@@ -125,7 +113,7 @@
 							$status = "<span class='label label-danger'>Kosong</span>";
 						}
 
-				echo "<a href='/detail/$stockan->ID_BARANG'>
+				echo "<a href='/detail/$stockan->ID'>
 						<div class='col-md-3 col-sm-6 col-xs-12'>
 							<div class='panel panel-default kotakan'>
 								<div class='panel-heading'>
@@ -148,7 +136,9 @@
                         }
                 ?>
 
+<div>
 
+</div>
 
 			</div>
 		</div>

@@ -35,6 +35,8 @@ Route::any('/hapus/{table}/{no}','tokoController@hapus');
 Route::get('/profile/{id}','UserController@profilku');
 Route::post('/profile/{id}','UserController@simpan');
 Route::get('/iklanbaru','tokoController@iklanbaru');
+Route::post('/simpaniklan','tokoController@simpaniklan');
+Route::get('/editiklan/{id}','tokoController@editiklan');
 Route::get('/dashboard','tokoController@dashboard');
 
 // Route::get('/detail/{id}', 'tokoController@jajal');

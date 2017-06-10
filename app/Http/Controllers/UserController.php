@@ -18,7 +18,9 @@ class UserController extends Controller
         $nohp = $result[0]->NO_HP;
         $tgl = $result[0]->TGL_LAHIR;
 
+
         return view('profile',[
+            'iduser'=>$id,
             'nama'=>$nama,
             'foto'=>$foto,
             'email'=>$email,
